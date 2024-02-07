@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import { UserProvider } from '../context/AuthContext';
 import moment from 'moment';
 import toast from 'react-hot-toast';
+import { Edit2, Trash } from 'iconsax-react';
 
 
 const child = {
@@ -112,14 +113,14 @@ function TodoItem() {
                 tabIndex={0}
                 role="button"
               >
-                <MdDelete />
+                <Trash size="20" color="#FF8A65"/>
               </div>
               <div onClick={() => handelEdit(item)}
                 className={styles.icon}
 
                 role="button"
               >
-                <MdEdit />
+                  <Edit2 size="20" color="#FF8A65"/>
               </div>
             </div>
           </div>

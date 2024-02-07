@@ -34,7 +34,7 @@ const dropIn = {
 function TodoModal({ type, modalOpen, setModalOpen }) {
 
   const { todo, setTodo } = useContext(UserProvider)
-  const currentDate = new Date().toLocaleDateString()
+  const currentDate = new Date().toLocaleString()
   const handelSubmit = (e) => {
     e.preventDefault()
     const todo = e.target.todo.value;
@@ -43,7 +43,7 @@ function TodoModal({ type, modalOpen, setModalOpen }) {
     // const time = moment().format('LT')
     // const date = moment().format("MMM Do YY")
     const id = Math.floor(Math.random() * 100)
-    const data = { todo, status, currentDate, id }
+    const data = { todo, status,currentDate, id }
     addData(data)
     setTodo(todo)
     setModalOpen(false)

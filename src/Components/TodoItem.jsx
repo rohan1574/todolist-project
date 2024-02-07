@@ -49,10 +49,11 @@ function TodoItem() {
     e.preventDefault()
     const todo = e.target.todo.value || defaultv.todo;
     const status = e.target.status.value || defaultv.status;
-    const time = moment().format('LT') || defaultv.time
-    const date = moment().format("MMM Do YY") || defaultv.date
+    // const time = moment().format('LT') || defaultv.time
+    // const date = moment().format("MMM Do YY") || defaultv.date
+    const currentDate = new Date().toLocaleString()
     const id = defaultv.id
-    const data = { todo, status, time, date, id }
+    const data = { todo, status,currentDate, id }
     editCard(data)
     setUp(!up)
     toast.success('Successfully updated!')
@@ -94,15 +95,15 @@ function TodoItem() {
 
               <input onChange={() => handelChange(item)} checked={item.status === 'complete' && "checked"} className="checkbox checkbox-lg" type="checkbox" id="cheke" />
               <div className={styles.texts}>
-                <p className=''>
+                <h1 className='text-2xl'>
 
                   {
-                    item?.status === 'complete' ? <del> {item?.todo}</del> : <>{item?.todo}</>
+                    item?.status === 'complete' ? <del> <h1>{item?.todo}</h1></del> : <><h1>{item?.todo}</h1></>
                   }
 
-                </p>
+                </h1>
                 <p className={styles.time}>
-                  {item?.time} ({item?.date})
+                  {item?.currentDate} 
                 </p>
               </div>
             </div>
